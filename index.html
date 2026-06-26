@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>資料收集網站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="主要導覽">
+        <a class="brand" href="#top" aria-label="資料收集網站首頁">DataCollect</a>
+        <div class="nav__links">
+          <a href="#form">填寫表單</a>
+          <a href="#records">資料紀錄</a>
+          <a href="#privacy">隱私說明</a>
+        </div>
+      </nav>
+
+      <section class="hero__content" id="top">
+        <p class="eyebrow">快速建立名單、需求與回饋</p>
+        <h1>可收集資料的響應式網站</h1>
+        <p>
+          使用者送出表單後，資料會先儲存在瀏覽器本機，方便現場活動、課堂報名或客戶需求蒐集時快速整理與匯出。
+        </p>
+        <a class="button button--primary" href="#form">開始收集資料</a>
+      </section>
+    </header>
+
+    <main>
+      <section class="section cards" aria-label="功能特色">
+        <article class="card">
+          <span class="card__icon">📝</span>
+          <h2>結構化欄位</h2>
+          <p>收集姓名、電子郵件、電話、用途分類、同意狀態與補充需求。</p>
+        </article>
+        <article class="card">
+          <span class="card__icon">💾</span>
+          <h2>本機保存</h2>
+          <p>資料以 localStorage 保存在使用者裝置，重新整理後仍可檢視。</p>
+        </article>
+        <article class="card">
+          <span class="card__icon">⬇️</span>
+          <h2>CSV 匯出</h2>
+          <p>一鍵下載資料表，便於後續匯入試算表或 CRM 系統。</p>
+        </article>
+      </section>
+
+      <section class="section form-section" id="form">
+        <div class="section__intro">
+          <p class="eyebrow">資料表單</p>
+          <h2>填寫基本資料</h2>
+          <p>請確認已取得填寫者同意後再送出。所有欄位都可依實際專案調整。</p>
+        </div>
+
+        <form class="data-form" id="dataForm">
+          <div class="form-grid">
+            <label>
+              姓名 <span aria-hidden="true">*</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="王小明" />
+            </label>
+            <label>
+              電子郵件 <span aria-hidden="true">*</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="hello@example.com" />
+            </label>
+            <label>
+              電話
+              <input type="tel" name="phone" autocomplete="tel" placeholder="0912-345-678" />
+            </label>
+            <label>
+              資料用途 <span aria-hidden="true">*</span>
+              <select name="purpose" required>
+                <option value="">請選擇用途</option>
+                <option value="活動報名">活動報名</option>
+                <option value="產品諮詢">產品諮詢</option>
+                <option value="課程通知">課程通知</option>
+                <option value="意見回饋">意見回饋</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            備註或需求
+            <textarea name="message" rows="5" placeholder="請輸入想補充的內容"></textarea>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="consent" required />
+            <span>我同意此網站為了聯繫與服務目的收集並保存上述資料。</span>
+          </label>
+          <div class="form-actions">
+            <button class="button button--primary" type="submit">送出資料</button>
+            <button class="button button--ghost" type="reset">清除表單</button>
+          </div>
+          <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="section records-section" id="records">
+        <div class="section__intro">
+          <p class="eyebrow">資料紀錄</p>
+          <h2>已收集資料</h2>
+          <p>下方表格顯示目前瀏覽器已保存的資料，可匯出 CSV 或清除所有紀錄。</p>
+        </div>
+        <div class="records-actions">
+          <button class="button button--secondary" id="downloadCsv" type="button">下載 CSV</button>
+          <button class="button button--danger" id="clearRecords" type="button">清除資料</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>姓名</th>
+                <th>Email</th>
+                <th>電話</th>
+                <th>用途</th>
+                <th>備註</th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody"></tbody>
+          </table>
+        </div>
+        <p class="empty-state" id="emptyState">目前尚無資料，請先填寫表單。</p>
+      </section>
+
+      <section class="section privacy" id="privacy">
+        <p class="eyebrow">Privacy</p>
+        <h2>隱私與資料處理說明</h2>
+        <ul>
+          <li>本範例將資料保存在瀏覽器本機，不會自動傳送到伺服器。</li>
+          <li>若要正式上線，請加入後端資料庫、權限控管與完整隱私權政策。</li>
+          <li>請只收集必要資料，並告知使用者資料用途、保存期間與刪除方式。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 DataCollect. Built for responsible data collection.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
