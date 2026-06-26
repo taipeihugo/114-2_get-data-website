@@ -3,91 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>資料收集網站</title>
+    <title>課程滿意度調查</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="hero">
       <nav class="nav" aria-label="主要導覽">
-        <a class="brand" href="#top" aria-label="資料收集網站首頁">DataCollect</a>
+        <a class="brand" href="#top" aria-label="課程滿意度調查首頁">CoursePulse</a>
         <div class="nav__links">
-          <a href="#form">填寫表單</a>
-          <a href="#records">資料紀錄</a>
-          <a href="#privacy">隱私說明</a>
+          <a href="#form">填寫問卷</a>
+          <a href="#records">回覆紀錄</a>
+          <a href="#privacy">資料說明</a>
         </div>
       </nav>
 
       <section class="hero__content" id="top">
-        <p class="eyebrow">快速建立名單、需求與回饋</p>
-        <h1>可收集資料的響應式網站</h1>
+        <p class="eyebrow">Course Satisfaction Survey</p>
+        <h1>課程滿意度調查網站</h1>
         <p>
-          使用者送出表單後，資料會先儲存在瀏覽器本機，方便現場活動、課堂報名或客戶需求蒐集時快速整理與匯出。
+          快速收集學員對課程內容、講師教學、教材品質與整體體驗的回饋，協助你持續改善下一次課程。
         </p>
-        <a class="button button--primary" href="#form">開始收集資料</a>
+        <a class="button button--primary" href="#form">開始填寫問卷</a>
       </section>
     </header>
 
     <main>
       <section class="section cards" aria-label="功能特色">
         <article class="card">
-          <span class="card__icon">📝</span>
-          <h2>結構化欄位</h2>
-          <p>收集姓名、電子郵件、電話、用途分類、同意狀態與補充需求。</p>
+          <span class="card__icon">⭐</span>
+          <h2>量化評分</h2>
+          <p>以 1 到 5 分收集整體滿意度、課程內容、講師表現與教材品質。</p>
         </article>
         <article class="card">
-          <span class="card__icon">💾</span>
-          <h2>本機保存</h2>
-          <p>資料以 localStorage 保存在使用者裝置，重新整理後仍可檢視。</p>
+          <span class="card__icon">💬</span>
+          <h2>文字回饋</h2>
+          <p>收集最有幫助的內容、希望改進的地方與未來想上的主題。</p>
         </article>
         <article class="card">
           <span class="card__icon">⬇️</span>
           <h2>CSV 匯出</h2>
-          <p>一鍵下載資料表，便於後續匯入試算表或 CRM 系統。</p>
+          <p>問卷回覆可一鍵下載，方便用試算表整理課程成效。</p>
         </article>
       </section>
 
       <section class="section form-section" id="form">
         <div class="section__intro">
-          <p class="eyebrow">資料表單</p>
-          <h2>填寫基本資料</h2>
-          <p>請確認已取得填寫者同意後再送出。所有欄位都可依實際專案調整。</p>
+          <p class="eyebrow">問卷表單</p>
+          <h2>填寫課程回饋</h2>
+          <p>請依照實際上課感受填寫。所有回覆會先保存在此瀏覽器本機。</p>
         </div>
 
-        <form class="data-form" id="dataForm">
+        <form class="data-form" id="surveyForm">
           <div class="form-grid">
             <label>
-              姓名 <span aria-hidden="true">*</span>
-              <input type="text" name="name" autocomplete="name" required placeholder="王小明" />
+              課程名稱 <span aria-hidden="true">*</span>
+              <input type="text" name="courseName" required placeholder="例如：資料分析入門" />
             </label>
             <label>
-              電子郵件 <span aria-hidden="true">*</span>
-              <input type="email" name="email" autocomplete="email" required placeholder="hello@example.com" />
+              講師姓名
+              <input type="text" name="instructor" placeholder="例如：王老師" />
             </label>
             <label>
-              電話
-              <input type="tel" name="phone" autocomplete="tel" placeholder="0912-345-678" />
+              學員姓名
+              <input type="text" name="studentName" autocomplete="name" placeholder="可留空匿名填寫" />
             </label>
             <label>
-              資料用途 <span aria-hidden="true">*</span>
-              <select name="purpose" required>
-                <option value="">請選擇用途</option>
-                <option value="活動報名">活動報名</option>
-                <option value="產品諮詢">產品諮詢</option>
-                <option value="課程通知">課程通知</option>
-                <option value="意見回饋">意見回饋</option>
+              電子郵件
+              <input type="email" name="email" autocomplete="email" placeholder="可留空" />
+            </label>
+            <label>
+              整體滿意度 <span aria-hidden="true">*</span>
+              <select name="overallRating" required>
+                <option value="">請選擇分數</option>
+                <option value="5">5 - 非常滿意</option>
+                <option value="4">4 - 滿意</option>
+                <option value="3">3 - 普通</option>
+                <option value="2">2 - 不太滿意</option>
+                <option value="1">1 - 非常不滿意</option>
+              </select>
+            </label>
+            <label>
+              課程內容 <span aria-hidden="true">*</span>
+              <select name="contentRating" required>
+                <option value="">請選擇分數</option>
+                <option value="5">5 - 非常實用</option>
+                <option value="4">4 - 實用</option>
+                <option value="3">3 - 普通</option>
+                <option value="2">2 - 不夠實用</option>
+                <option value="1">1 - 完全不實用</option>
+              </select>
+            </label>
+            <label>
+              講師教學 <span aria-hidden="true">*</span>
+              <select name="instructorRating" required>
+                <option value="">請選擇分數</option>
+                <option value="5">5 - 非常清楚</option>
+                <option value="4">4 - 清楚</option>
+                <option value="3">3 - 普通</option>
+                <option value="2">2 - 不太清楚</option>
+                <option value="1">1 - 很不清楚</option>
+              </select>
+            </label>
+            <label>
+              教材品質 <span aria-hidden="true">*</span>
+              <select name="materialRating" required>
+                <option value="">請選擇分數</option>
+                <option value="5">5 - 非常完整</option>
+                <option value="4">4 - 完整</option>
+                <option value="3">3 - 普通</option>
+                <option value="2">2 - 不夠完整</option>
+                <option value="1">1 - 很不完整</option>
               </select>
             </label>
           </div>
           <label>
-            備註或需求
-            <textarea name="message" rows="5" placeholder="請輸入想補充的內容"></textarea>
+            你覺得最有幫助的內容是什麼？
+            <textarea name="mostHelpful" rows="4" placeholder="例如：實作練習、案例說明、課後資源等"></textarea>
+          </label>
+          <label>
+            希望改進的地方
+            <textarea name="improvement" rows="4" placeholder="例如：上課節奏、教材難度、互動時間等"></textarea>
+          </label>
+          <label>
+            未來想學的主題
+            <textarea name="futureTopic" rows="3" placeholder="請輸入你希望未來開設的課程或主題"></textarea>
           </label>
           <label class="checkbox">
             <input type="checkbox" name="consent" required />
-            <span>我同意此網站為了聯繫與服務目的收集並保存上述資料。</span>
+            <span>我同意此網站為了課程品質改善目的收集並保存上述問卷回覆。</span>
           </label>
           <div class="form-actions">
-            <button class="button button--primary" type="submit">送出資料</button>
+            <button class="button button--primary" type="submit">送出問卷</button>
             <button class="button button--ghost" type="reset">清除表單</button>
           </div>
           <p class="status" id="formStatus" role="status" aria-live="polite"></p>
@@ -96,45 +142,62 @@
 
       <section class="section records-section" id="records">
         <div class="section__intro">
-          <p class="eyebrow">資料紀錄</p>
-          <h2>已收集資料</h2>
-          <p>下方表格顯示目前瀏覽器已保存的資料，可匯出 CSV 或清除所有紀錄。</p>
+          <p class="eyebrow">Survey Records</p>
+          <h2>已收集回覆</h2>
+          <p>下方表格顯示目前瀏覽器已保存的課程滿意度回覆，可匯出 CSV 或清除所有紀錄。</p>
+        </div>
+        <div class="survey-summary" aria-label="課程滿意度統計摘要">
+          <article>
+            <span id="totalResponses">0</span>
+            <p>總回覆數</p>
+          </article>
+          <article>
+            <span id="averageOverall">—</span>
+            <p>平均整體滿意度</p>
+          </article>
+          <article>
+            <span id="averageInstructor">—</span>
+            <p>平均講師教學</p>
+          </article>
         </div>
         <div class="records-actions">
           <button class="button button--secondary" id="downloadCsv" type="button">下載 CSV</button>
-          <button class="button button--danger" id="clearRecords" type="button">清除資料</button>
+          <button class="button button--danger" id="clearRecords" type="button">清除回覆</button>
         </div>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
                 <th>時間</th>
-                <th>姓名</th>
-                <th>Email</th>
-                <th>電話</th>
-                <th>用途</th>
-                <th>備註</th>
+                <th>課程</th>
+                <th>學員</th>
+                <th>整體</th>
+                <th>內容</th>
+                <th>講師</th>
+                <th>教材</th>
+                <th>最有幫助</th>
+                <th>待改進</th>
               </tr>
             </thead>
             <tbody id="recordsBody"></tbody>
           </table>
         </div>
-        <p class="empty-state" id="emptyState">目前尚無資料，請先填寫表單。</p>
+        <p class="empty-state" id="emptyState">目前尚無回覆，請先填寫問卷。</p>
       </section>
 
       <section class="section privacy" id="privacy">
-        <p class="eyebrow">Privacy</p>
-        <h2>隱私與資料處理說明</h2>
+        <p class="eyebrow">Data Notice</p>
+        <h2>資料與問卷說明</h2>
         <ul>
-          <li>本範例將資料保存在瀏覽器本機，不會自動傳送到伺服器。</li>
-          <li>若要正式上線，請加入後端資料庫、權限控管與完整隱私權政策。</li>
-          <li>請只收集必要資料，並告知使用者資料用途、保存期間與刪除方式。</li>
+          <li>本範例將課程滿意度回覆保存在瀏覽器本機，不會自動傳送到伺服器。</li>
+          <li>若要正式用於學校或企業課程，請加入後端資料庫、權限控管與完整隱私權政策。</li>
+          <li>建議只收集必要資料，並告知學員資料用途、保存期間與刪除方式。</li>
         </ul>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 DataCollect. Built for responsible data collection.</p>
+      <p>© 2026 CoursePulse. Built for better learning experiences.</p>
     </footer>
 
     <script src="script.js"></script>

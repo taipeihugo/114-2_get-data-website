@@ -127,7 +127,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(37, 99, 235,
 .status--error { color: var(--danger); }
 
 .table-wrap { overflow-x: auto; margin-top: 24px; }
-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+table { width: 100%; border-collapse: collapse; min-width: 980px; }
 th, td { padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
 th { color: var(--muted); font-size: 0.9rem; }
 .empty-state { margin-top: 20px; padding: 16px; border-radius: 16px; background: #f1f5f9; }
@@ -139,4 +139,29 @@ footer { padding: 32px 20px; text-align: center; }
   .nav__links { flex-wrap: wrap; }
   .hero__content { margin-top: 70px; text-align: left; }
   .cards, .form-grid { grid-template-columns: 1fr; }
+}
+
+.survey-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.survey-summary article {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  background: #f8fbff;
+}
+.survey-summary span {
+  display: block;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.survey-summary p { margin: 8px 0 0; font-weight: 800; }
+
+@media (max-width: 760px) {
+  .survey-summary { grid-template-columns: 1fr; }
 }
